@@ -49,6 +49,7 @@ public class cardealer {
 					discount_amt=Integer.valueOf(discount);
 				if(discount_amt>30000) {
 					System.out.println("Maximum discount should not cross 30000!");
+					discount_amt=0;
 				}
 				if(!insurance.equalsIgnoreCase("yes") && !add_accessories.equalsIgnoreCase("yes") && discount_amt > 0) {
 					System.out.println("Any one of the additional features have to be added!");
