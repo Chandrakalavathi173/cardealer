@@ -1,18 +1,25 @@
 import java.util.Scanner;
 public class cardealer {
-			public String carmodel;
-			public String insurance;
-			public String add_accessories;
-			public String discount;
-			public long RTO=113990;
-			public long TCSCharges=11000;
-			public long discount_amt=0;
-			public void getCarModel()
+			private String carmodel;
+			private String insurance;
+			private String add_accessories;
+			private String discount;
+			private long RTO=113990;
+			private long TCSCharges=11000;
+			private long discount_amt=0;
+			public String getCarmodel() {
+				return carmodel;
+			}
+
+			public void setCarmodel(String carmodel) {
+				this.carmodel = carmodel;
+			}
+			protected void getInfo()
 			{
 				Scanner sc=new Scanner(System.in);
 				System.out.println("Select car model: ");
-				carmodel=sc.nextLine();
-				System.out.println("Do you need insurance");
+				setCarmodel(sc.nextLine());
+				System.out.println("Do you need insurance:");
 				insurance=sc.nextLine();
 				System.out.println("Do you need Additional Accessories: ");
 				add_accessories=sc.nextLine();
@@ -21,7 +28,7 @@ public class cardealer {
 				sc.close();
 			}
 				
-			public void getCost(String carName,long cost)
+			protected void getCost(String carName,long cost)
 			{
 				long total=cost+RTO+TCSCharges;
 				int insurance_amt=0;
@@ -51,9 +58,10 @@ public class cardealer {
 					total-=discount_amt;
 				}
 				System.out.println();
-				System.out.println("Total cost "+total+"("+carmodel+" "+cost+" + "+RTO+"(RTO) + "+insurance_amt+"(Insurance) + "+TCSCharges+"(TCS) + "+add_accessories_amt+"(Additional Accessories) - "+discount_amt+"(Dealer discount))");
+				System.out.println("Total cost "+total+"("+getCarmodel()+" "+cost+" + "+RTO+"(RTO) + "+insurance_amt+"(Insurance) + "+TCSCharges+"(TCS) + "+add_accessories_amt+"(Additional Accessories) - "+discount_amt+"(Dealer discount))");
 		
 			}
+
 	}			
 
 
